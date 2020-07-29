@@ -9,21 +9,13 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.sapphire.daggerviewmodel.vm.LoginViewModel
 import dagger.android.AndroidInjector
+import dagger.android.DaggerActivity
 import dagger.android.DispatchingAndroidInjector
+import dagger.android.support.DaggerAppCompatActivity
 import dagger.android.support.HasSupportFragmentInjector
 import javax.inject.Inject
 
-class LoginActivity : AppCompatActivity(), HasSupportFragmentInjector {
-
-    @Inject
-    lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Fragment>
-
-    @Inject
-    lateinit var logManager: LogManager
-
-    @Inject
-    lateinit var viewModelFactory: ViewModelProvider.Factory
-
+class LoginActivity : BaseActivity() {
     @Inject
     lateinit var loginWithPwdFragment: LoginWithPwdFragment
 
@@ -40,7 +32,8 @@ class LoginActivity : AppCompatActivity(), HasSupportFragmentInjector {
             add(R.id.login_frame, loginWithPwdFragment)
         }
 
-        viewModel = ViewModelProviders.of(this, viewModelFactory).get(LoginViewModel::class.java)
+        viewModel = getViewModel(LoginViewModel::class.java)
+
         logManager.doLog("in activity view model = $viewModel, factory = $viewModelFactory")
 
         viewModel.contentTypeData.observe(this, Observer {
@@ -59,9 +52,5 @@ class LoginActivity : AppCompatActivity(), HasSupportFragmentInjector {
             Toast.makeText(applicationContext, (if (it) "登录成功" else "登录失败"), Toast.LENGTH_LONG)
                 .show()
         })
-    }
-
-    override fun supportFragmentInjector(): AndroidInjector<Fragment> {
-        return dispatchingAndroidInjector
     }
 }
