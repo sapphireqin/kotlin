@@ -10,7 +10,8 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/daggereasy" />
+            <option value="$PROJECT_DIR$/daggersubmodule" />
             <option value="$PROJECT_DIR$/daggerviewmodel" />
           </set>
         </option>

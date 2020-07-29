@@ -4,10 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
 import com.sapphire.daggerviewmodel.vm.LoginViewModel
-import dagger.android.support.DaggerFragment
 import kotlinx.android.synthetic.main.login_with_pwd.*
 import javax.inject.Inject
 

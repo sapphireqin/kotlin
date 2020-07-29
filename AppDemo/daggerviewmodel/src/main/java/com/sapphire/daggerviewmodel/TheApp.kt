@@ -15,18 +15,12 @@ class TheApp : Application(), HasActivityInjector {
     @Inject
     lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Activity>
 
-    private lateinit var appComponent: AppComponent
-
     override fun onCreate() {
         super.onCreate()
-        appComponent = DaggerAppComponent.builder().appModule(AppModule(this)).build()
-
-        appComponent.inject(this)
+        DaggerAppComponent.builder().appModule(AppModule(this)).build().inject(this)
     }
 
     override fun activityInjector(): AndroidInjector<Activity> {
         return dispatchingAndroidInjector
     }
-
-
 }

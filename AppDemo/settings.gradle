@@ -1,3 +1,4 @@
+include ':daggereasy'
 rootProject.name='AppDemo'
-include ':app'
+include ':daggersubmodule'
 include ':daggerviewmodel'
