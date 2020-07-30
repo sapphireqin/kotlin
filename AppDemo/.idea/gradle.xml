@@ -13,6 +13,8 @@
             <option value="$PROJECT_DIR$/daggereasy" />
             <option value="$PROJECT_DIR$/daggersubmodule" />
             <option value="$PROJECT_DIR$/daggerviewmodel" />
+            <option value="$PROJECT_DIR$/kointest" />
+            <option value="$PROJECT_DIR$/kointest1" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

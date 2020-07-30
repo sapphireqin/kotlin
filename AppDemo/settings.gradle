@@ -1,3 +1,5 @@
+include ':kointest'
+include ':kointest1'
 include ':daggereasy'
 rootProject.name='AppDemo'
 include ':daggersubmodule'
